@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["qar*"]
+
+[project]
+name = "qar"
+version = "0.1.0"
+description = "Quantitative Alpha Research — derivatives analytics from first principles"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.14",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "matplotlib>=3.8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = [
+    "slow: full-grid validation sweeps (deselect with '-m \"not slow\"')",
+    "network: hits the live Deribit API (deselect with '-m \"not network\"')",
+]

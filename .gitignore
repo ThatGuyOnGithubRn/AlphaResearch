@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+examples/*.png
+data/raw/
+
+# Claude / local AI settings
+.claude/
+
+# Environment / secrets
+.env
+.env.*
+*.env
